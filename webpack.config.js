@@ -48,6 +48,9 @@ module.exports = {
     new CopyWebpackPlugin([{
       from:'./src/images/*',
       to:'./images/[name].[ext]'
+    },{
+      from:'./src/*.html*',
+      to: './[name].[ext]'
     }])
   ],
   stats: {
