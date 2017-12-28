@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YuppApp/Web.git"
+    "url": "git+https://github.com/erickzhao/static-html-webpack-boilerplate.git"
   },
   "author": "erick zhao",
   "license": "ISC",
