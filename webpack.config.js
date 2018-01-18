@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: ['./src/js/app.js','./src/style/main.scss'],
@@ -48,6 +49,7 @@ module.exports = {
       from:'./src/*.html',
       to: './[name].[ext]'
     }]),
+    new CleanWebpackPlugin(['dist']),
   ],
   stats: {
     colors: true
