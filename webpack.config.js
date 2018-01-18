@@ -1,11 +1,31 @@
 var path = require('path');
+var glob = require('glob');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const generateHTMLPlugins = () => {
+  return glob.sync('./src/**/*.html').map(dir =>
+    new HTMLWebpackPlugin({
+      filename: getNameFromDir(dir), // Output
+      template: dir, // Input
+    })
+  )
+}
+
+const getNameFromDir = (dir) => {
+  const lastSlash = dir.lastIndexOf('/');
+  return dir.slice(lastSlash + 1);
+}
+
+
 module.exports = {
+  node: {
+    fs: 'empty'
+  },
   entry: ['./src/js/app.js','./src/style/main.scss'],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -45,11 +65,7 @@ module.exports = {
       from: './src/static/',
       to: './static/',
     }]),
-    new CopyWebpackPlugin([{
-      from:'./src/*.html',
-      to: './[name].[ext]'
-    }]),
-    new CleanWebpackPlugin(['dist']),
+    ...generateHTMLPlugins()
   ],
   stats: {
     colors: true
