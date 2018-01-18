@@ -1,35 +1,32 @@
-var path = require('path');
-var glob = require('glob');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var HTMLWebpackPlugin = require('html-webpack-plugin');
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-
-const generateHTMLPlugins = () => {
-  return glob.sync('./src/**/*.html').map(dir =>
-    new HTMLWebpackPlugin({
-      filename: getNameFromDir(dir), // Output
-      template: dir, // Input
-    })
-  )
-}
+const path = require('path');
+const glob = require('glob');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const cssnano = require('cssnano');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const getNameFromDir = (dir) => {
   const lastSlash = dir.lastIndexOf('/');
   return dir.slice(lastSlash + 1);
-}
+};
 
+const generateHTMLPlugins = () =>
+  glob.sync('./src/**/*.html').map(dir =>
+    new HTMLWebpackPlugin({
+      filename: getNameFromDir(dir), // Output
+      template: dir, // Input
+    }));
 
 module.exports = {
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
-  entry: ['./src/js/app.js','./src/style/main.scss'],
+  entry: ['./src/js/app.js', './src/style/main.scss'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
   },
   module: {
     rules: [
@@ -37,8 +34,8 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['env', 'minify']
-        }
+          presets: ['env', 'minify'],
+        },
       },
       {
         test: /\.(sass|scss)$/,
@@ -46,9 +43,9 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'raw-loader'
-      }
-    ]
+        loader: 'raw-loader',
+      },
+    ],
   },
   plugins: [
     new ExtractTextPlugin({
@@ -57,23 +54,24 @@ module.exports = {
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
-      cssProcessor: require('cssnano'),
+      cssProcessor: cssnano,
       cssProcessorOptions: { discardComments: { removeAll: true } },
-      canPrint: true
+      canPrint: true,
     }),
     new CopyWebpackPlugin([{
       from: './src/static/',
       to: './static/',
     }]),
-    ...generateHTMLPlugins()
+    new CleanWebpackPlugin(['dist']),
+    ...generateHTMLPlugins(),
   ],
   stats: {
-    colors: true
+    colors: true,
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     watchContentBase: true,
-    port: 9000
-  }
+    port: 9000,
+  },
 };
