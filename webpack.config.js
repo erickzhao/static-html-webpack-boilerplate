@@ -41,12 +41,13 @@ module.exports = {
       canPrint: true
     }),
     new CopyWebpackPlugin([{
-      from:'./src/images/*',
-      to:'./images/[name].[ext]'
-    },{
-      from:'./src/*.html*',
+      from: './src/static/',
+      to: './static/',
+    }]),
+    new CopyWebpackPlugin([{
+      from:'./src/*.html',
       to: './[name].[ext]'
-    }])
+    }]),
   ],
   stats: {
     colors: true
