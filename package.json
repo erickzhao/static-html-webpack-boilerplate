@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start:dev": "webpack-dev-server",
+    "build": "webpack --config webpack.prod.js",
+    "start:dev": "webpack-dev-server --open --config webpack.dev.js",
     "start": "webpack && http-server ./dist"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.3.1",
     "css-loader": "^0.28.7",
     "cssnano": "^3.10.0",
     "eslint": "^4.15.0",
@@ -35,13 +36,11 @@
     "postcss-loader": "^2.0.8",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
-    "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^2.9.3",
+    "webpack-merge": "^4.1.1"
   },
-  "dependencies": {
-    "copy-webpack-plugin": "^4.2.0"
-  },
+  "dependencies": {},
   "browserslist": [
     "> 1%",
     "last 2 versions"
