@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const getNameFromDir = (dir) => {
@@ -34,12 +35,12 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['env', 'minify'],
+          presets: ['env'],
         },
       },
       {
         test: /\.(sass|scss)$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'sass-loader'])
+        loader: ExtractTextPlugin.extract(['css-loader', 'postcss-loader', 'sass-loader']),
       },
       {
         test: /\.html$/,
@@ -48,6 +49,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new UglifyJSPlugin({
+      sourceMap: true,
+    }),
     new ExtractTextPlugin({
       filename: 'style.bundle.css',
       allChunks: true,
