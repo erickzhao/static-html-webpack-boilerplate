@@ -1,7 +1,7 @@
 {
   "name": "static-html-site-boilerplate",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Modern tooling for old-school static webpage development",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
@@ -40,7 +40,10 @@
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "npm": "^6.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.5"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions"
