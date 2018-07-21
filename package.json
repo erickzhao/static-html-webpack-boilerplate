@@ -36,13 +36,10 @@
     "postcss-loader": "^2.0.8",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.1"
-  },
-  "dependencies": {
-    "npm": "^6.0.0",
-    "uglifyjs-webpack-plugin": "^1.2.5"
   },
   "browserslist": [
     "> 1%",
