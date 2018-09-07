@@ -1,15 +1,21 @@
 # Static HTML Webpack Boilerplate
+[![Build Status](https://api.travis-ci.org/erickzhao/static-html-webpack-boilerplate.svg?branch=master)](https://travis-ci.org/erickzhao/static-html-webpack-boilerplate)
 
-Enjoy hand-writing your HTML? Keep it old-school with modern build tools. This boilerplate is a non-opinionated setup that makes it easier to write your own styling, scripts, and mark-up.
+<p align="center">
+  <img width="200" height="200" src="https://i.imgur.com/y8m5pkQ.png">
+</p>
+
+Enjoy hand-writing your HTML? Keep it old-school with modern build tools. This boilerplate setup makes it easier to write your own styling, scripts, and mark-up.
 
 ## Features
 
-- Write SCSS and ES2015+ code in `src` and build minified, transpiled code for production in `dist`
+- Write SCSS and modern JavaScript code in `src` and build minified, transpiled code for production in `dist`
+- Continuous integration with linting tests and deploying to `gh-pages`
 - Live reloading with webpack-dev-server
-- ES5 transpilation, bundling, and minification
-- SCSS transpilation, bundling, autoprefixing, and minification
+- ES6+ to ES5 transpilation, bundling, and minification
+- SCSS to CSS transpilation, bundling, autoprefixing, and minification
 - Automatic copying of HTML and static assets from `src` to `dist` folders
-- ESLint validation for Javascript files
+- Linting for styles and scripts
 
 ## Usage
 
