@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
+    "lint:js": "./node_modules/.bin/eslint src/js/*.js",
+    "lint:styles": "stylelint \"src/**/*.scss\"",
     "start:dev": "webpack-dev-server --open --config webpack.dev.js",
     "start": "webpack --config webpack.prod.js && http-server ./dist -o"
   },
@@ -36,6 +38,8 @@
     "postcss-loader": "^2.0.8",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
+    "stylelint": "^9.5.0",
+    "stylelint-config-standard": "^18.2.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3",
