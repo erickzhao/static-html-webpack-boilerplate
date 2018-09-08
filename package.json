@@ -7,7 +7,7 @@
     "build": "webpack --config webpack.config.prod.js",
     "lint:js": "./node_modules/.bin/eslint src/js/*.js",
     "lint:styles": "stylelint \"src/**/*.scss\"",
-    "start:dev": "webpack-dev-server --open --config webpack.config.dev.js",
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js",
     "start": "webpack --config webpack.config.prod.js && http-server ./dist -o"
   },
   "repository": {
