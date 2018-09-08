@@ -6,11 +6,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 
 module.exports = merge(common, {
+  mode: 'production',
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-    }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: cssnano,
@@ -19,4 +17,3 @@ module.exports = merge(common, {
     }),
   ],
 });
-
