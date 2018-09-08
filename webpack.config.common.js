@@ -1,8 +1,9 @@
-const path = require('path');
 const glob = require('glob');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const getNameFromDir = (dir) => {
   const lastSlash = dir.lastIndexOf('/');
