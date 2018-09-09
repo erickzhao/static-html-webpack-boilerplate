@@ -7,6 +7,7 @@ install:
 script:
   - npm run lint:styles
   - npm run lint:js
+  - npm run lint:html
   - npm run build
 deploy:
   provider: pages
@@ -16,3 +17,4 @@ deploy:
   local-dir: dist
   on:
     branch: master
+    node: 'lts/*'
