@@ -31,13 +31,13 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['env'],
-        },
-      },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'babel-loader',
+      //   query: {
+      //     presets: ['env'],
+      //   },
+      // },
       {
         test: /\.(sass|scss)$/,
         use: [
@@ -64,7 +64,7 @@ module.exports = {
       from: './src/static/',
       to: './static/',
     }]),
-    ...generateHTMLPlugins(),
+    ...generateHTMLPlugins()
   ],
   stats: {
     colors: true,
