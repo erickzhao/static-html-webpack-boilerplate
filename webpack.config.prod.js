@@ -8,9 +8,6 @@ const common = require('./webpack.config.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
-  optimization: {
-    minimize: true,
-  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new OptimizeCssAssetsPlugin({
