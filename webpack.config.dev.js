@@ -7,6 +7,6 @@ module.exports = merge(common, {
   devServer: {
     open: true,
     port: process.env.PORT || 9000,
-    host: process.env.HOST || '0.0.0.0',
+    host: process.env.HOST || 'localhost',
   },
 });
