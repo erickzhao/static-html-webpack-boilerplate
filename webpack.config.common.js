@@ -41,10 +41,11 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          'css-loader', 'postcss-loader', 'sass-loader',
+          'style-loader',
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          // },
+           'css-loader', 'sass-loader',
         ],
       },
       {
@@ -54,12 +55,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
+    // new MiniCssExtractPlugin({
+    //   // Options similar to the same options in webpackOptions.output
+    //   // both options are optional
+    //   filename: '[name].css',
+    //   chunkFilename: '[id].css',
+    // }),
     new CopyWebpackPlugin([{
       from: './src/static/',
       to: './static/',
