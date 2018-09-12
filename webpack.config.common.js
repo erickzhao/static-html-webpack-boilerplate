@@ -26,9 +26,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.bundle.js',
   },
-  optimization: {
-    minimize: true,
-  },
   module: {
     rules: [
       {
