@@ -7,7 +7,6 @@ install:
 script:
   - npm run lint:styles
   - npm run lint:js
-  - npm run lint:html
   - npm run build
 deploy:
   provider: pages
