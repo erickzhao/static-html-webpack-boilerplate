@@ -5,15 +5,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const getNameFromDir = (dir) => {
-  const lastSlash = dir.lastIndexOf('/');
-  return dir.slice(lastSlash + 1);
-};
-
 const generateHTMLPlugins = () =>
   glob.sync('./src/**/*.html').map(dir =>
     new HTMLWebpackPlugin({
-      filename: getNameFromDir(dir), // Output
+      filename: path.basename(dir), // Output
       template: dir, // Input
     }));
 
@@ -25,9 +20,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.bundle.js',
-  },
-  optimization: {
-    minimize: true,
   },
   module: {
     rules: [
