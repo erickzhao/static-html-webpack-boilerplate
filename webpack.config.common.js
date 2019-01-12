@@ -4,12 +4,12 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const generateHTMLPlugins = () =>
-  glob.sync('./src/**/*.html').map(dir =>
-    new HTMLWebpackPlugin({
-      filename: path.basename(dir), // Output
-      template: dir, // Input
-    }));
+const generateHTMLPlugins = () => glob.sync('./src/**/*.html').map(
+  dir => new HTMLWebpackPlugin({
+    filename: path.basename(dir), // Output
+    template: dir, // Input
+  }),
+);
 
 module.exports = {
   node: {
@@ -33,10 +33,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([{
-      from: './src/static/',
-      to: './static/',
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: './src/static/',
+        to: './static/',
+      },
+    ]),
     ...generateHTMLPlugins(),
   ],
   stats: {
