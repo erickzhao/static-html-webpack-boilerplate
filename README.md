@@ -2,6 +2,7 @@
 [![GitHub version](https://badge.fury.io/gh/erickzhao%2Fstatic-html-webpack-boilerplate.svg)](https://badge.fury.io/gh/erickzhao%2Fstatic-html-webpack-boilerplate)
 [![Build Status](https://api.travis-ci.org/erickzhao/static-html-webpack-boilerplate.svg?branch=master)](https://travis-ci.org/erickzhao/static-html-webpack-boilerplate)
 [![Dev Dependencies](https://david-dm.org/erickzhao/static-html-webpack-boilerplate/dev-status.svg)](https://david-dm.org/erickzhao/static-html-webpack-boilerplate?type=dev)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a81c78b2255343a2a1c86abb564431a9)](https://app.codacy.com/app/erickzhao/static-html-webpack-boilerplate?utm_source=github.com&utm_medium=referral&utm_content=erickzhao/static-html-webpack-boilerplate&utm_campaign=Badge_Grade_Dashboard)
 
 <p align="center">
   <img width="200" height="200" src="https://i.imgur.com/y8m5pkQ.png">
