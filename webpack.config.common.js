@@ -30,6 +30,15 @@ module.exports = {
         test: /\.html$/,
         loader: 'raw-loader',
       },
+      {
+        test: /\.(pdf|gif|png|jpe?g|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
     ],
   },
   plugins: [
