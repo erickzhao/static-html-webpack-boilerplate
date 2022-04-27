@@ -39,7 +39,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pa11y-ci": "^2.1.1",
     "postcss-loader": "^3.0.0",
-    "raw-loader": "^4.0.1",
+    "raw-loader": "^4.0.2",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.0.1",
     "stylelint": "^13.6.1",
